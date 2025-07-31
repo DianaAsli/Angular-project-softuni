@@ -1,0 +1,80 @@
+<div class="flex items-center justify-between py-3 font-medium">
+  <!-- Logo -->
+  <img routerLink="/" src="images/logo.png" alt="Project logo" class="cursor-pointer w-36 h-20 object-cover"/>
+
+  <!-- Navigation -->
+  <ul class="flex gap-8 text-sm text-gray-800">
+    <li>
+      <a routerLink="/"
+        class="cursor-pointer relative after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-2 after:h-[2px] after:bg-gray-800 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200">
+        HOME
+      </a>
+    </li>
+    <li>
+      <a routerLink="/categories"
+        class="cursor-pointer relative after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-2 after:h-[2px] after:bg-gray-800 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200">
+        CATEGORIES
+      </a>
+    </li>
+    <li>
+      <a routerLink="/about"
+        class="cursor-pointer relative after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-2 after:h-[2px] after:bg-gray-800 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200">
+        ABOUT
+      </a>
+    </li>
+    <li>
+      <a routerLink="/contact"
+        class="cursor-pointer relative after:content-[''] after:absolute after:left-0 after:right-0 after:-bottom-2 after:h-[2px] after:bg-gray-800 after:scale-x-0 hover:after:scale-x-100 after:transition-transform after:duration-200">
+        CONTACT
+      </a>
+    </li>
+
+  </ul>
+
+
+  <!-- Actions -->
+  <div class="flex items-center gap-6 mr-10">
+    <a class="cursor-pointer mr-3">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+        class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round"
+          d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+      </svg>
+    </a>
+
+    @if(isLoggedIn){
+    <div class="relative" (click)="toggleDropDown()">
+      <a class="cursor-pointer">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
+          class="size-6">
+          <path stroke-linecap="round" stroke-linejoin="round"
+            d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+        </svg>
+      </a>
+
+      <!-- Dropdown -->
+      @if(isDropDownOpen){
+      <div class="absolute right-0 mt-2  w-30 bg-white rounded-md shadow-lg border border-gray-200 z-50">
+        <a routerLink="/profile" class="block px-4 py-2 text-gray-800 hover:bg-gray-100 transition">My Profile</a>
+        <button (click)="logout()"
+          class="block w-full text-left px-4 py-2 text-gray-800 hover:bg-gray-100 transition">Logout</button>
+      </div>
+      }
+    </div>
+    } @else {
+    <div class="flex items-center gap-3">
+      <a routerLink="/login"
+        class="px-4 py-2 text-sm border border-gray-800 rounded hover:bg-gray-100 transition cursor-pointer">
+        Login
+      </a>
+      <a routerLink="/register"
+        class="px-4 py-2 text-sm bg-gray-800 text-white rounded hover:bg-gray-700 transition cursor-pointer">
+        Register
+      </a>
+    </div>
+
+    }
+
+
+  </div>
+</div>
