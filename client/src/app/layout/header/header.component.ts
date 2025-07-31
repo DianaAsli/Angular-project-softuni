@@ -10,7 +10,7 @@ import { RouterLink } from '@angular/router';
 })
 export class HeaderComponent {
   isLoggedIn: boolean = true;
-  isDropDownOpen: boolean = true;
+  isDropDownOpen: boolean = false;
 
   toggleDropDown() {
     this.isDropDownOpen = !this.isDropDownOpen
