@@ -2,130 +2,129 @@
     "products":{
         "fb352199-bcbc-4e1d-a1dc-ed346a6fb49a": {
             "_id": "fb352199-bcbc-4e1d-a1dc-ed346a6fb49a",
-            "productName": "Golden ring with Pearl",
+            "title": "Golden ring with Pearl",
             "description": "Elegant 18K gold ring with a brilliant-cut diamond.",
             "price": 499,
             "category": "Rings",
             "subcategory":["Pearls", "Gold"],
-            "imageUrl": ["https://www.missoma.com/cdn/shop/products/molten-pearl-twisted-stacking-ring-18ct-gold-plated-vermeilpearl-rings-missoma-310552.jpg?v=1679628305",
+            "imageUrls": ["https://www.missoma.com/cdn/shop/products/molten-pearl-twisted-stacking-ring-18ct-gold-plated-vermeilpearl-rings-missoma-310552.jpg?v=1679628305",
             "https://www.missoma.com/cdn/shop/files/molten-pearl-twisted-stacking-ring-18ct-gold-plated-vermeilpearl-rings-missoma-652353.jpg?v=1743163931",
             "https://www.missoma.com/cdn/shop/products/molten-pearl-twisted-stacking-ring-18ct-gold-plated-vermeilpearl-rings-missoma-762998.jpg?v=1698409858"],
             "createdAt": "2025-03-10T12:00:00Z",
             "updatedAt": "2024-03-11T15:30:00Z",
-            "bestseller": true
+            "bestSeller": true
         },
         "fb352199-bcbc-4e1d-a1dc-ed346a6fb49b": {
             "_id": "fb352199-bcbc-4e1d-a1dc-ed346a6fb49b",
-            "productName": "Golden ring with Diamond",
+            "title": "Golden ring with Diamond",
             "description": "",
             "price": 999,
             "category": "Rings",
             "subcategory":["Gold", "Diamonds"],
-            "imageUrl": ["https://us.missoma.com/cdn/shop/files/fine-open-claw-ring-14k-solid-golddiamond-rings-missoma-385757.jpg?v=1725617874&width=1000",
+            "imageUrls": ["https://us.missoma.com/cdn/shop/files/fine-open-claw-ring-14k-solid-golddiamond-rings-missoma-385757.jpg?v=1725617874&width=1000",
             "https://us.missoma.com/cdn/shop/files/fine-open-claw-ring-14k-solid-golddiamond-rings-missoma-883013.jpg?v=1731969161&width=2000",
             "https://us.missoma.com/cdn/shop/products/fine-open-claw-ring-14k-solid-golddiamond-rings-missoma-264532.jpg?v=1725539473&width=2000"],
             "createdAt": "2025-02-10T12:00:00Z",
             "updatedAt": "2024-03-11T15:30:00Z",
-            "bestseller": false
+            "bestSeller": false
         },
         "fb352199-bcbc-4e1d-a1dc-ed346a6fb49c": {
             "_id": "fb352199-bcbc-4e1d-a1dc-ed346a6fb49c",
-           "productName": "Siver Earings with Stones 3",
+           "title": "Siver Earings with Stones 3",
             "description": "Silver earings with Stones",
             "price": 999,
             "category": "Earings",
             "subcategory":["Silver"],
-            "imageUrl": ["https://us.missoma.com/cdn/shop/products/fine-classic-diamond-huggies-14k-white-golddiamond-earrings-missoma-304139.jpg?v=1677012073&width=1000",
+            "imageUrls": ["https://us.missoma.com/cdn/shop/products/fine-classic-diamond-huggies-14k-white-golddiamond-earrings-missoma-304139.jpg?v=1677012073&width=1000",
             "https://us.missoma.com/cdn/shop/files/fine-classic-diamond-huggies-14ct-white-golddiamond-earrings-missoma-464675.jpg?v=1699460935&width=1000",
             "https://us.missoma.com/cdn/shop/files/fine-classic-diamond-huggies-14ct-white-golddiamond-earrings-missoma-920588.jpg?v=1699461011&width=1000"],
             "createdAt": "2025-01-10T12:00:00Z",
             "updatedAt": "2024-03-11T15:30:00Z",
-            "bestseller": true
+            "bestSeller": true
         },
         "fb352199-bcbc-4e1d-a1dc-ed346a6fb49d": {
             "_id": "fb352199-bcbc-4e1d-a1dc-ed346a6fb49d",
-            "productName": "Golden ring",
+            "title": "Golden ring",
             "description": "Elegant 18K gold ring with a brilliant-cut diamond.",
             "price": 499,
             "category": "Rings",
             "subcategory":["Gold"],
-            "imageUrl": ["https://us.missoma.com/cdn/shop/products/molten-wave-stacking-ring-18ct-gold-plated-vermeil-rings-missoma-729244.jpg?v=1742401779&width=1000",
+            "imageUrls": ["https://us.missoma.com/cdn/shop/products/molten-wave-stacking-ring-18ct-gold-plated-vermeil-rings-missoma-729244.jpg?v=1742401779&width=1000",
             "https://us.missoma.com/cdn/shop/products/molten-wave-stacking-ring-18ct-gold-plated-vermeil-rings-missoma-321033.jpg?v=1742401779&width=1000",
             "https://us.missoma.com/cdn/shop/files/molten-wave-stacking-ring-18k-gold-vermeil-rings-missoma-881190.jpg?v=1742401779&width=1000"],
             "createdAt": "2024-04-10T12:00:00Z",
             "updatedAt": "2024-03-11T15:30:00Z",
-            "bestseller": true
+            "bestSeller": true
         },
         "fb352199-bcbc-4e1d-a1dc-ed346a6fb49e": {
             "_id": "fb352199-bcbc-4e1d-a1dc-ed346a6fb49e",
-            "productName": "Silver ring",
+            "title": "Silver ring",
             "description": "silver ring",
             "price": 199,
             "category": "Rings",
             "subcategory":["Silver"],
-            "imageUrl": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyncXZ4zWjqQuJtggrUYtCfGY12wer92g5WA&s",
+            "imageUrls": ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyncXZ4zWjqQuJtggrUYtCfGY12wer92g5WA&s",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyncXZ4zWjqQuJtggrUYtCfGY12wer92g5WA&s",
             "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQyncXZ4zWjqQuJtggrUYtCfGY12wer92g5WA&s"],
             "createdAt": "2024-05-10T12:00:00Z",
             "updatedAt": "2024-03-11T15:30:00Z",
-            "bestseller": true
+            "bestSeller": true
         },
         "fb352199-bcbc-4e1d-a1dc-ed346a6fb49f": {
             "_id": "fb352199-bcbc-4e1d-a1dc-ed346a6fb49f",
-            "productName": "Golden earings with Diamonds",
+            "title": "Golden earings with Diamonds",
             "description": "Elegant 18K gold ring with a brilliant-cut diamond.",
             "price": 999,
             "category": "Earings",
             "subcategory":["Gold", "Diamonds"],
-            "imageUrl": ["https://us.missoma.com/cdn/shop/files/fine-diamond-ovate-mini-hoop-earrings-14k-solid-golddiamond-earrings-missoma-745568.jpg?v=1720561944&width=1000",
+            "imageUrls": ["https://us.missoma.com/cdn/shop/files/fine-diamond-ovate-mini-hoop-earrings-14k-solid-golddiamond-earrings-missoma-745568.jpg?v=1720561944&width=1000",
             "https://us.missoma.com/cdn/shop/files/fine-diamond-ovate-mini-hoop-earrings-14k-solid-golddiamond-earrings-missoma-637372.jpg?v=1720560839&width=1000",
             "https://us.missoma.com/cdn/shop/files/fine-diamond-ovate-mini-hoop-earrings-14k-solid-golddiamond-earrings-missoma-821902.jpg?v=1720560667&width=1000"],
             "createdAt": "2020-03-10T12:00:00Z",
             "updatedAt": "2024-03-11T15:30:00Z",
-            "bestseller": false
+            "bestSeller": false
         },
         "afb352199-bcbc-4e1d-a1dc-ed346a6fb49f": {
             "_id": "afb352199-bcbc-4e1d-a1dc-ed346a6fb49f",
-            "productName": "Golden earings with Diamonds",
+            "title": "Golden earings with Diamonds",
             "description": "Elegant 18K gold ring with a brilliant-cut diamond.",
             "price": 999,
             "category": "Earings",
             "subcategory":["Gold", "Diamonds"],
-            "imageUrl": ["https://us.missoma.com/cdn/shop/files/fine-small-solitaire-diamond-stud-earrings-14k-solid-gold-earrings-missoma-984946.jpg?v=1699460991&width=1000",
+            "imageUrls": ["https://us.missoma.com/cdn/shop/files/fine-small-solitaire-diamond-stud-earrings-14k-solid-gold-earrings-missoma-984946.jpg?v=1699460991&width=1000",
             "https://us.missoma.com/cdn/shop/products/fine-small-solitaire-diamond-stud-earrings-14k-solid-gold-earrings-missoma-220430.jpg?v=1699375714&width=2000",
             "https://us.missoma.com/cdn/shop/files/fine-small-solitaire-diamond-stud-earrings-14k-solid-gold-earrings-missoma-556638.jpg?v=1699461035&width=2000"],
             "createdAt": "2020-03-10T12:00:00Z",
             "updatedAt": "2024-03-11T15:30:00Z",
-            "bestseller": false
+            "bestSeller": false
         },
         "afb352199-bcbc-4e1d-a1dc-ed346a6fb491f": {
             "_id": "afb352199-bcbc-4e1d-a1dc-ed346a6fb491f",
-            "productName": "Watch",
+            "title": "Watch",
             "description": "Elegant 18K gold ring with a brilliant-cut diamond.",
             "price": 999,
             "category": "Accessories",
             "subcategory":["Watches"],
-            "imageUrl": ["https://titanworld.com/cdn/shop/files/2725WM01.jpg?v=1706541418&width=1200",
+            "imageUrls": ["https://titanworld.com/cdn/shop/files/2725WM01.jpg?v=1706541418&width=1200",
             "https://titanworld.com/cdn/shop/files/2725WM01_2_bb6f610d-963f-4776-8a45-e2ed6f2f3f86.jpg?v=1706541417&width=1200",
             "https://titanworld.com/cdn/shop/files/2725WM01_3_0809f5ce-136c-424d-bc96-41e6a4313ba9.jpg?v=1706541417&width=1200"],
             "createdAt": "2020-03-10T12:00:00Z",
             "updatedAt": "2024-03-11T15:30:00Z",
-            "bestseller": false
+            "bestSeller": false
         },
         "fbl352199-bcbc-4e1d-a1dc-ed346a6fb49f": {
             "_id": "fbl352199-bcbc-4e1d-a1dc-ed346a6fb49f",
-            "productName": "Black bag",
+            "title": "Black bag",
             "description": "Elegant 18K gold ring with a brilliant-cut diamond.",
             "price": 999,
             "category": "Accessories",
             "subcategory":["Bags"],
-            "imageUrl": ["https://www.charleskeith.eu/dw/image/v2/BCWJ_PRD/on/demandware.static/-/Sites-ck-products/default/dwf3a84874/images/hi-res/2024-L7-CK2-40782486-01-1.jpg?sw=756&sh=1008",
+            "imageUrls": ["https://www.charleskeith.eu/dw/image/v2/BCWJ_PRD/on/demandware.static/-/Sites-ck-products/default/dwf3a84874/images/hi-res/2024-L7-CK2-40782486-01-1.jpg?sw=756&sh=1008",
             "https://www.charleskeith.eu/dw/image/v2/BCWJ_PRD/on/demandware.static/-/Sites-ck-products/default/dwa593cc7d/images/hi-res/2024-L7-CK2-40782486-01-3.jpg?sw=756&sh=1008",
             "https://www.charleskeith.eu/dw/image/v2/BCWJ_PRD/on/demandware.static/-/Sites-ck-products/default/dw0d6acd08/images/hi-res/2024-L7-CK2-40782486-01-5.jpg?sw=756&sh=1008"],
             "createdAt": "2020-03-10T12:00:00Z",
             "updatedAt": "2024-03-11T15:30:00Z",
-            "bestseller": false
+            "bestSeller": false
         }
 }
 }
-     
