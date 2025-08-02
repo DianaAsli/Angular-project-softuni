@@ -1,8 +1,8 @@
 import { ProductService } from './../../../core/services/product.service';
 import { Component, OnInit } from '@angular/core';
-import { ProductCardComponent } from "../../product-card/product-card.component";
+import { ProductCardComponent } from "../../../shared/components/product-card/product-card.component";
 import { Product } from '../../../shared/models/product.model';
-import { TitleComponent } from "../../../shared/title/title.component";
+import { TitleComponent } from "../../../shared/components/title/title.component";
 
 @Component({
   selector: 'app-best-sellers',

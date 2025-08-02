@@ -20,4 +20,13 @@ export class ProductService {
       }))
   }
 
+  getNewArrivals() {
+    return this.http.get<{ products: Record<string, Product> }>(this.apiUrl).pipe(
+      map(response => {
+        const productsArray = Object.values(response.products);
+
+        return productsArray.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).slice(0, 5)
+      }))
+  }
+
 }
