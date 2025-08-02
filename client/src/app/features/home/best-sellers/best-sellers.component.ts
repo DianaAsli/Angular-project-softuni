@@ -2,11 +2,12 @@ import { ProductService } from './../../../core/services/product.service';
 import { Component, OnInit } from '@angular/core';
 import { ProductCardComponent } from "../../product-card/product-card.component";
 import { Product } from '../../../shared/models/product.model';
+import { TitleComponent } from "../../../shared/title/title.component";
 
 @Component({
   selector: 'app-best-sellers',
   standalone: true,
-  imports: [ProductCardComponent],
+  imports: [ProductCardComponent, TitleComponent],
   templateUrl: './best-sellers.component.html',
   styleUrl: './best-sellers.component.css'
 })

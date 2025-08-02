@@ -1,4 +1,4 @@
-<h1 class="text-5xl text-center m-2 p-2">BESTSELLERS</h1>
+<app-title title="Best Sellers" />
 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6">
   @for (product of bestSellers; track product._id){
   <app-product-card [product]="product" />
