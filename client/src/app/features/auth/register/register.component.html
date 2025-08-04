@@ -1,0 +1,121 @@
+<section class="min-h-10 flex items-center justify-center bg-gray-50 px-4 py-1">
+  <div class="max-w-md w-full bg-white-200 rounded-xl shadow-2xl p-2 space-y-2">
+    <!-- <h2 class="text-2xl font-bold text-center text-gray-800">Create an Account</h2> -->
+    <app-title title="Create an Account" />
+
+    <!-- <p class="text-sm text-center">With a Nomeya.com account, you can save time during checkout, access your shopping bag from any device and view your order history.</p> -->
+
+    <form class="space-y-4" [formGroup]="form" (ngSubmit)="register()">
+      <!-- Username -->
+      <div>
+        <label for="username" class="block text-sm font-medium text-gray-700">Username</label>
+        <input type="text" id="username" formControlName="username"
+          class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:outline-none" />
+      </div>
+      <ng-container>
+        @if(username?.invalid && (username?.touched || username?.dirty)){
+        <p class="mt-1 text-sm text-red-600">
+          @if(username?.errors?.['required']){
+          Username is required.
+          }
+          @if(username?.errors?.['minlength']){
+          Username must be at least 3 characters long.
+          }
+          @if(username?.errors?.['maxlength']){
+          Username must not exceed 10 characters.
+          }
+        </p>
+        }
+      </ng-container>
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+        <input type="email" id="email" formControlName="email"
+          class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:outline-none" />
+      </div>
+
+      <ng-container>
+        @if(email?.invalid && (email?.touched || email?.dirty)){
+        <p class="mt-1 text-sm text-red-600">
+          @if(email?.errors?.['required']){
+          Email is required.
+          }
+          @if(email?.errors?.['email']){
+          Please enter a valid email address.
+          }
+        </p>
+        }
+      </ng-container>
+
+
+      <ng-container formGroupName="passwordGroup">
+        <!-- Password -->
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+          <input type="password" id="password" formControlName="password"
+            class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:outline-none" />
+        </div>
+
+        @if(password?.invalid && (password?.touched || password?.dirty)){
+        <p class="mt-1 text-sm text-red-600">
+          @if(password?.errors?.['required']){
+          Password is required.
+          }
+          @if(password?.errors?.['minlength']){
+          Password must be at least 6 characters long.
+          }
+          @if(password?.errors?.['maxlength']){
+          Password must not exceed 20 characters.
+          }
+        </p>
+        }
+
+        <!-- Repeat Password -->
+        <div>
+          <label for="repeatPassword" class="block text-sm font-medium text-gray-700">Repeat Password</label>
+          <input type="password" id="repeatPassword" formControlName="rePassword"
+            class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:outline-none" />
+        </div>
+
+        <ng-container>
+          @if(rePassword?.invalid && (rePassword?.touched || rePassword?.dirty)){
+          <p class="mt-1 text-sm text-red-600">
+            @if(rePassword?.errors?.['required']){
+            Password is required.
+            }
+          </p>
+          }
+        </ng-container>
+
+        <!-- Passwords dont match error -->
+
+        <ng-container>
+
+          @if(!rePassword?.errors?.['required'] &&
+          passwordGroup?.errors?.['passwordDontMatch']
+          && (rePassword?.touched || rePassword?.dirty)){
+          
+          <p class="mt-1 text-sm text-red-600">
+            Passwords do not match.
+          </p>
+          }
+
+
+        </ng-container>
+
+      </ng-container>
+
+
+      <!-- Submit -->
+      <button class="w-full bg-gray-800 text-white py-2 rounded-md hover:bg-gray-500 transition duration-200">
+        Register
+      </button>
+    </form>
+
+    <p class="text-sm text-center text-gray-600">
+      Already have an account?
+      <a routerLink="/login" class="text-blue-800 hover:underline">Login here</a>
+    </p>
+  </div>
+</section>
