@@ -1,22 +1,27 @@
-import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import { Component, inject, OnInit } from '@angular/core';
+import { Router, RouterLink, RouterModule } from '@angular/router';
+import { AuthService } from '../../core/services/auth.service';
 
 @Component({
   selector: 'app-header',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, RouterModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css'
 })
 export class HeaderComponent {
-  isLoggedIn: boolean = true;
+  private router = inject(Router);
+  private authService = inject(AuthService);
+
   isDropDownOpen: boolean = false;
+  isLoggedIn = this.authService.isLoggedIn;
 
   toggleDropDown() {
     this.isDropDownOpen = !this.isDropDownOpen
   }
 
   logout() {
-    this.isLoggedIn = false;
+    this.authService.logout();
+    this.router.navigate(['/login'])
   }
 }

@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, signal } from '@angular/core';
 import { User } from '../../shared/models/user.model';
 import { Observable, tap } from 'rxjs';
 
@@ -9,6 +9,9 @@ import { Observable, tap } from 'rxjs';
 export class AuthService {
   private readonly apiUrl = 'http://localhost:3030/users'
 
+  private _isLoggedIn = signal(!!localStorage.getItem('token'));
+  public isLoggedIn = this._isLoggedIn;
+
   constructor(private http: HttpClient) { }
 
   register(userData: { username: string, email: string, password: string }): Observable<User> {
@@ -17,6 +20,7 @@ export class AuthService {
         if (user.accessToken) {
           localStorage.setItem('token', user.accessToken);
           localStorage.setItem('user', JSON.stringify(user))
+          this._isLoggedIn.set(true);
         }
       })
     )
@@ -25,5 +29,6 @@ export class AuthService {
   logout(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('user')
+    this._isLoggedIn.set(false);
   }
 }
