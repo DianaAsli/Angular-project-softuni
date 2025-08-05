@@ -89,13 +89,12 @@
         </ng-container>
 
         <!-- Passwords dont match error -->
-
         <ng-container>
 
           @if(!rePassword?.errors?.['required'] &&
           passwordGroup?.errors?.['passwordDontMatch']
           && (rePassword?.touched || rePassword?.dirty)){
-          
+
           <p class="mt-1 text-sm text-red-600">
             Passwords do not match.
           </p>
@@ -108,7 +107,7 @@
 
 
       <!-- Submit -->
-      <button class="w-full bg-gray-800 text-white py-2 rounded-md hover:bg-gray-500 transition duration-200">
+      <button [disabled]="form.invalid" class="w-full bg-gray-800 text-white py-2 rounded-md hover:bg-gray-500 transition duration-200">
         Register
       </button>
     </form>
