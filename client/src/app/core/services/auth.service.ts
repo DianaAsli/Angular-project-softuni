@@ -26,6 +26,18 @@ export class AuthService {
     )
   }
 
+  login(userData: { email: string, password: string }): Observable<User> {
+    return this.http.post<User>(`${this.apiUrl}/login`, userData).pipe(
+      tap(user => {
+        if (user.accessToken) {
+          localStorage.setItem('token', user.accessToken);
+          localStorage.setItem('user', JSON.stringify(user));
+          this._isLoggedIn.set(true);
+        }
+      })
+    )
+  }
+
   logout(): void {
     localStorage.removeItem('token');
     localStorage.removeItem('user')
