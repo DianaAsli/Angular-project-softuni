@@ -16,6 +16,8 @@ export class LoginComponent {
   private authService = inject(AuthService);
   private router = inject(Router)
 
+  errorMessage = ''
+
   form: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required]]
@@ -43,8 +45,10 @@ export class LoginComponent {
     // console.log('login data', loginData);
 
     this.authService.login(userData).subscribe({
-      next: () => this.router.navigate(['/'])
-      //errorsss!!!
+      next: () => this.router.navigate(['/']),
+      error: (err) => {
+        this.errorMessage = err;
+      }
     })
 
   }

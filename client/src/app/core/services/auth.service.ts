@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, signal } from '@angular/core';
 import { User } from '../../shared/models/user.model';
-import { Observable, tap } from 'rxjs';
+import { catchError, Observable, tap, throwError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +22,9 @@ export class AuthService {
           localStorage.setItem('user', JSON.stringify(user))
           this._isLoggedIn.set(true);
         }
+      }),
+      catchError(err => {
+        return throwError(() => err?.error?.message || 'Registartion failed.')
       })
     )
   }
@@ -34,6 +37,9 @@ export class AuthService {
           localStorage.setItem('user', JSON.stringify(user));
           this._isLoggedIn.set(true);
         }
+      }),
+      catchError(err => {
+        return throwError(() => err?.error?.message || 'Login failed.')
       })
     )
   }

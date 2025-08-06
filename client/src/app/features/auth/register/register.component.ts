@@ -15,6 +15,7 @@ import { AuthService } from '../../../core/services/auth.service';
 })
 export class RegisterComponent {
   form: FormGroup;
+  errorMessage = '';
 
   constructor(private fb: FormBuilder, private authService: AuthService, private router: Router) {
     this.form = this.fb.group({
@@ -55,8 +56,10 @@ export class RegisterComponent {
       password: formValue.passwordGroup.password
     }
     this.authService.register(userData).subscribe({
-      next: () => this.router.navigate(['/'])
-      //error
+      next: () => this.router.navigate(['/']),
+      error: (err) =>{
+        this.errorMessage = err;
+      }
     })
   }
 
