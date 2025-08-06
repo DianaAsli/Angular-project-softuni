@@ -1,1 +1,57 @@
-<p>login works!</p>
+<section class="min-h-10 flex items-center justify-center bg-gray-50 px-4 py-1">
+  <div class="max-w-md w-full bg-white-200 rounded-xl shadow-2xl p-2 space-y-2">
+    <!-- <h2 class="text-2xl font-bold text-center text-gray-800">Create an Account</h2> -->
+    <app-title title="Login" />
+
+    <!-- <p class="text-sm text-center">With a Nomeya.com account, you can save time during checkout, access your shopping bag from any device and view your order history.</p> -->
+
+    <form class="space-y-4" [formGroup]="form" (ngSubmit)="login()">
+
+      <!-- Email -->
+      <div>
+        <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+        <input type="email" id="email" formControlName="email"
+          class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:outline-none" />
+      </div>
+      
+      <ng-container>
+        @if(email?.invalid && (email?.touched || email?.dirty)){
+        <p class="mt-1 text-sm text-red-600">
+          @if(email?.errors?.['required']){
+          Email is required.
+          }
+          @if(email?.errors?.['email']){
+          Please enter a valid email address.
+          }
+        </p>
+        }
+      </ng-container>
+
+      <!-- Password -->
+      <div>
+        <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+        <input type="password" id="password" formControlName="password"
+          class="w-full mt-1 p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-200 focus:outline-none" />
+      </div>
+
+      @if(password?.invalid && (password?.touched || password?.dirty)){
+      <p class="mt-1 text-sm text-red-600">
+        @if(password?.errors?.['required']){
+        Password is required.
+        }
+      </p>
+      }
+
+      <!-- Submit -->
+      <button [disabled]="form.invalid"
+        class="w-full bg-gray-800 text-white py-2 rounded-md hover:bg-gray-500 transition duration-200">
+        Login
+      </button>
+    </form>
+
+    <p class="text-sm text-center text-gray-600">
+      Don't have an account?
+      <a routerLink="/register" class="text-blue-800 hover:underline">Register here</a>
+    </p>
+  </div>
+</section>
