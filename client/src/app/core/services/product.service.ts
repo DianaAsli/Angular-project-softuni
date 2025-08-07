@@ -29,4 +29,8 @@ export class ProductService {
       }))
   }
 
+  getOne(id: string){
+    return this.http.get<Product>(`${this.apiUrl}/${id}`);
+  }
+
 }

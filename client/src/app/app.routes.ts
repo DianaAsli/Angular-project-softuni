@@ -5,6 +5,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { ContactsComponent } from './pages/contacts/contacts.component';
 import { RegisterComponent } from './features/auth/register/register.component';
 import { LoginComponent } from './features/auth/login/login.component';
+import { ProductDetailsComponent } from './features/products/product-details/product-details.component';
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -14,5 +15,7 @@ export const routes: Routes = [
     { path: 'contact', component: ContactsComponent },
 
     {path:'register', component: RegisterComponent},
-    {path:'login', component:LoginComponent}
+    {path:'login', component:LoginComponent},
+   
+    {path:'product/:id', component: ProductDetailsComponent}
 ];

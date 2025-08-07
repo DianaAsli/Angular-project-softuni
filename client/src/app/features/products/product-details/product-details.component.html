@@ -1,0 +1,52 @@
+<section class="max-w-6xl mx-auto p-6 bg-white rounded-lg shadow-md mt-8">
+
+  <div class="flex flex-col md:flex-row gap-3">
+    <div class="flex">
+      <div class="flex flex-col gap-3">
+        @if (product?.imageUrls) {
+        @for (img of product?.imageUrls; track img) {
+        <img
+              [src]="img"
+              alt="{{ product?.title }}"
+              (click)="selectedImage = img"
+              class="w-35 h-35 object-cover rounded cursor-pointer hover:border-blue-100 transition"
+            />
+          }
+        }
+      </div>
+
+        <div class="ml-6">
+          <img
+          [src]="selectedImage || product?.imageUrls?.[0]"
+          alt="{{ product?.title }}"
+          class="w-110 h-110 object-cover border-1 rounded-lg shadow-lg"
+        />
+      </div>
+        </div>
+
+
+        <div class="flex flex-col justify-between flex-1 m-6">
+
+          <div>
+            <!-- <h1 class="text-3xl font-bold text-gray-800 ">
+              {{ product?.title }}
+            </h1> -->
+            <app-title title="{{product?.title}}" />
+            <p class="text-gray-800 font-bold">{{ product?.description }}</p>
+            <p class="mt-2">Category: {{product?.category}}</p>
+          </div>
+
+          <div >
+            <p class="mb-3 text-xl font-semibold text-gray-900">BGN {{ product?.price }}</p>
+            <button class="bg-gray-800 text-white px-6 py-2 rounded hover:bg-gray-600 transition">
+              Add to Cart
+            </button>
+          </div>
+
+          <div class="mt-8 text-sm text-gray-500">
+            <!-- <p>Created at: {{ product?.createdAt | date:'mediumDate' }}</p>
+        <p>Updated at: {{ product?.updatedAt | date:'mediumDate' }}</p> -->
+          </div>
+        </div>
+      </div>
+</section>

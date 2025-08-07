@@ -8,7 +8,7 @@
     <form class="space-y-4" [formGroup]="form" (ngSubmit)="register()">
      
         @if(errorMessage){
-      <p class="text-red-600">{{errorMessage}}</p>
+      <p class="bg-red-100 text-red-800 border border-red-300 px-4 py-2 rounded mb-3 text-center">{{errorMessage}}</p>
       }
 
       <!-- Username -->
