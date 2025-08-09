@@ -1,0 +1,5 @@
+textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #6c9dec; /* синя рамка вместо жълта */
+  background-color: white;
+}
