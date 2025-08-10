@@ -4,11 +4,12 @@ import { Product } from '../../../shared/models/product.model';
 import { ActivatedRoute } from '@angular/router';
 import { TitleComponent } from "../../../shared/components/title/title.component";
 import { CommentFormComponent } from "../../comments/comment-form/comment-form.component";
+import { CommentListComponent } from "../../comments/comment-list/comment-list.component";
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [TitleComponent, CommentFormComponent],
+  imports: [TitleComponent, CommentFormComponent, CommentListComponent],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css'
 })

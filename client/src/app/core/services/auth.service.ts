@@ -12,6 +12,11 @@ export class AuthService {
   private _isLoggedIn = signal(!!localStorage.getItem('token'));
   public isLoggedIn = this._isLoggedIn;
 
+  getUser(): User | null {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
+  }
+
   constructor(private http: HttpClient) { }
 
   register(userData: { username: string, email: string, password: string }): Observable<User> {

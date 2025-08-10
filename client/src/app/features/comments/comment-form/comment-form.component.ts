@@ -1,8 +1,9 @@
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { AuthService } from './../../../core/services/auth.service';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ratingValidator } from '../../../shared/validators/rating.validator';
+import { CommentService } from '../../../core/services/comment.service';
 
 @Component({
   selector: 'app-comment-form',
@@ -13,7 +14,9 @@ import { ratingValidator } from '../../../shared/validators/rating.validator';
 })
 export class CommentFormComponent {
   private authService = inject(AuthService);
+  private commentService = inject(CommentService)
   private fb = inject(FormBuilder);
+  private route = inject(ActivatedRoute);
 
   isFormVisible: boolean = false;
   rating = 0;
@@ -45,12 +48,30 @@ export class CommentFormComponent {
       this.form.markAllAsTouched()
       return;
     }
-    console.log('comment data', this.form.value);
+    // console.log('comment data', this.form.value);
 
+    const commentData = {
+      productId: this.route.snapshot.paramMap.get('id')!,
+      rating: this.rating,
+      comment: this.form.value.comment,
+      username: this.authService.getUser()?.username!
+    }
+
+    this.commentService.addComment(commentData).subscribe({
+      next: () => {
+        console.log('successfully added');
+        //TODO refresh comments list
+      },
+      error: (err) => {
+        console.log('error', err);
+
+      }
+    })
+
+    // Reset form
     this.form.reset({ rating: 0, comment: '' });
     this.rating = 0;
     this.isFormVisible = false;
-
   }
 
 
