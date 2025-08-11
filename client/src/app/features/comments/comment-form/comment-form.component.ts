@@ -4,6 +4,7 @@ import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { ratingValidator } from '../../../shared/validators/rating.validator';
 import { CommentService } from '../../../core/services/comment.service';
+import { CommentOutput } from '../../../shared/models/comment-output.model';
 
 @Component({
   selector: 'app-comment-form',
@@ -48,7 +49,6 @@ export class CommentFormComponent {
       this.form.markAllAsTouched()
       return;
     }
-    // console.log('comment data', this.form.value);
 
     const commentData = {
       productId: this.route.snapshot.paramMap.get('id')!,
@@ -57,22 +57,11 @@ export class CommentFormComponent {
       username: this.authService.getUser()?.username!
     }
 
-    this.commentService.addComment(commentData).subscribe({
-      next: () => {
-        console.log('successfully added');
-        //TODO refresh comments list
-      },
-      error: (err) => {
-        console.log('error', err);
-
-      }
-    })
+    this.commentService.addComment(commentData);
 
     // Reset form
     this.form.reset({ rating: 0, comment: '' });
     this.rating = 0;
     this.isFormVisible = false;
   }
-
-
 }

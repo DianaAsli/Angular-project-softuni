@@ -1,5 +1,6 @@
+import { CommentOutput } from './../../shared/models/comment-output.model';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { Comment } from '../../shared/models/comment.model';
 
 @Injectable({
@@ -8,12 +9,30 @@ import { Comment } from '../../shared/models/comment.model';
 export class CommentService {
   private readonly apiUrl = "http://localhost:3030/data/comments";
 
+  public comments = signal<CommentOutput[]>([]);
+
   constructor(private http: HttpClient) { }
 
+  getComments(productId: string) {
+    const query = encodeURIComponent(`productId="${productId}"`);
+    return this.http.get<CommentOutput[]>(`${this.apiUrl}?where=${query}`)
+      .subscribe({
+        next: (data) => this.comments.set(data),
+        error: (err) => console.log('Error loading comments', err)
+      });
+  }
+
   addComment(commentData: Comment) {
-    const accessToken = localStorage.getItem('token')
-    return this.http.post(`${this.apiUrl}`, commentData, {
+    const accessToken = localStorage.getItem('token');
+
+    return this.http.post<CommentOutput>(`${this.apiUrl}`, commentData, {
       headers: { 'X-Authorization': `${accessToken}` }
+    }).subscribe({
+      next: (newComment) => {
+        this.comments.update(prev => [...prev, newComment])
+      },
+      error: (err) => console.log('Error adding comment', err)
+      
     })
   }
 }
