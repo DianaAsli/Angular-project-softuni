@@ -50,7 +50,7 @@
       <!-- Button -->
       <div class="mt-3 flex gap-2">
         <button type="submit"
-          class="bg-blue-300 text-white px-6 py-2 rounded hover:bg-gray-600 transition">Submit</button>
+          class="bg-blue-300 text-white px-6 py-2 rounded hover:bg-gray-600 transition">{{editComment ? 'Edit' : 'Submit'}}</button>
         <button type="button" class="bg-gray-600 text-white px-6 py-2 rounded hover:bg-blue-300 transition"
           (click)="toggle()">Cancel</button>
       </div>

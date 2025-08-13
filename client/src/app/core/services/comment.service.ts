@@ -13,26 +13,33 @@ export class CommentService {
 
   constructor(private http: HttpClient) { }
 
+  private getAuthHeaders() {
+    const accessToken = localStorage.getItem('token') || '';
+    return {
+      'X-Authorization': `${accessToken}`
+    }
+  }
+
   getComments(productId: string) {
     const query = encodeURIComponent(`productId="${productId}"`);
     return this.http.get<CommentOutput[]>(`${this.apiUrl}?where=${query}`)
-      .subscribe({
-        next: (data) => this.comments.set(data),
-        error: (err) => console.log('Error loading comments', err)
-      });
   }
 
   addComment(commentData: Comment) {
     const accessToken = localStorage.getItem('token');
-
     return this.http.post<CommentOutput>(`${this.apiUrl}`, commentData, {
-      headers: { 'X-Authorization': `${accessToken}` }
-    }).subscribe({
-      next: (newComment) => {
-        this.comments.update(prev => [...prev, newComment])
-      },
-      error: (err) => console.log('Error adding comment', err)
-      
+      headers: this.getAuthHeaders()
+    })
+  }
+
+  deleteComment(commentId: string) {
+    const accessToken = localStorage.getItem('token');
+    return this.http.delete(`${this.apiUrl}/${commentId}`, { headers: this.getAuthHeaders() })
+  }
+
+  editComment(commentId: string, updatedData: {rating: number, comment:string}){
+    return this.http.put<CommentOutput>(`${this.apiUrl}/${commentId}`, updatedData, {
+      headers: this.getAuthHeaders()
     })
   }
 }
