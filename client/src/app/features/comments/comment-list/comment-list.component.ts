@@ -25,10 +25,7 @@ export class CommentListComponent implements OnInit {
   ngOnInit(): void {
     this.userId = this.authService.getUser()?._id;
     const productId = this.route.snapshot.paramMap.get('id')!
-    this.commentService.getComments(productId).subscribe({
-      next: (data) => this.comments.set(data),
-      error: (err) => console.log('Error loading comments', err)
-    });
+    this.commentService.getComments(productId);
   }
 
   editComment(commentId: string) {
@@ -37,11 +34,6 @@ export class CommentListComponent implements OnInit {
   }
 
   deleteComment(commentId: string) {
-    this.commentService.deleteComment(commentId).subscribe({
-      next: () => {
-        this.comments.update(prev => prev.filter(comment => comment._id !== commentId))
-      },
-      error: (err) => console.log('error deleting comment', err)
-    })
+    this.commentService.deleteComment(commentId);
   }
 }

@@ -73,14 +73,7 @@ export class CommentFormComponent implements OnChanges {
         rating: this.rating,
         comment: this.form.value.comment,
       }
-      this.commentService.editComment(this.editComment._id, updatedData)
-        .subscribe({
-          next: (updatedComment) => {
-            this.commentService.comments.update((prev) =>
-              prev.map(c => c._id === updatedComment._id ? updatedComment : c)
-            );
-          }
-        })
+      this.commentService.editComment(this.editComment._id, updatedData);
     } else {
       // Add 
       const commentData = {
@@ -90,12 +83,7 @@ export class CommentFormComponent implements OnChanges {
         username: this.authService.getUser()?.username!
       }
 
-      this.commentService.addComment(commentData).subscribe({
-        next: (newComment) => {
-          this.commentService.comments.update(prev => [...prev, newComment])
-        },
-        error: (err) => console.log('Error adding comment', err)
-      })
+      this.commentService.addComment(commentData);
     }
 
     // Reset form
