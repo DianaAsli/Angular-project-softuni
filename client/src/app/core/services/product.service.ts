@@ -29,6 +29,15 @@ export class ProductService {
       }))
   }
 
+   getByCategory(category: string) {
+    return this.http.get<Record<string, Product>>(this.apiUrl).pipe(
+      map(response => {
+        const productsArray = Object.values(response);
+
+        return productsArray.filter(p => p.category.toLocaleLowerCase() === category.toLocaleLowerCase());
+      }))
+  }
+
   getOne(id: string){
     return this.http.get<Product>(`${this.apiUrl}/${id}`);
   }

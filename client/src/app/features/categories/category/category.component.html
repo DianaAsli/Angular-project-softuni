@@ -1,1 +1,14 @@
-<p>category works!</p>
+<div class="max-w-screen-xl mx-auto px-4">
+  @if(products.length>0){
+  <app-title title="{{category.toLocaleUpperCase()}}" />
+  <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6">
+    @for (product of products; track product._id){
+    <app-product-card [product]="product" />
+    }
+  </div>
+  } @else {
+  <p class="m-5 text-center text-gray-800 text-lg">No products found in this category.</p>
+  <a routerLink="/categories" class="mt-6 block text-center text-gray-600">Go back to Categories.</a>
+  }
+
+</div>
