@@ -4,5 +4,5 @@ export interface User {
     email:string,
     password:string,
     _createdOn: string,
-    accessToken: string
+    accessToken: string,
 }

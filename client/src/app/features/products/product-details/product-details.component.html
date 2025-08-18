@@ -26,27 +26,27 @@
 
 
         <div class="flex flex-col justify-between flex-1 m-6">
-
-          <div>
-            <!-- <h1 class="text-3xl font-bold text-gray-800 ">
-              {{ product?.title }}
-            </h1> -->
+          <div class="text-center md:text-left">
             <app-title title="{{product?.title}}" />
-            <p class="text-gray-800 font-bold">{{ product?.description }}</p>
-            <p class="mt-2">Category: {{product?.category}}</p>
+            <p class="text-gray-800 font-medium">{{ product?.description }}</p>
+            <p class="text-gray-600 mt-2">Category: {{ product?.category }}</p>
+            <p class="text-xl font-semibold text-gray-900 mt-4">BGN {{ product?.price }}</p>
           </div>
 
-          <div>
-            <p class="mb-3 text-xl font-semibold text-gray-900">BGN {{ product?.price }}</p>
-            <button class="bg-gray-600 text-white px-6 py-2 rounded hover:bg-blue-300 transition">
+          <div class="flex justify-center md:justify-start items-center gap-4 mt-4">
+            <button class="bg-black text-white px-6 py-2 rounded cursor-pointer hover:bg-gray-800 transition">
               Add to Cart
             </button>
-          </div>
-
-          <div class="mt-8 text-sm text-gray-500">
-
+            <svg (click)="isFavourite = !isFavourite" [style.fill]="isFavourite ? 'red': 'none'"
+              xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" stroke-width="0.5" stroke="currentColor"
+              class="w-7 h-7 cursor-pointer hover:scale-110 ">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+            </svg>
           </div>
         </div>
+
+
       </div>
 </section>
-<app-comment-list/>
+<app-comment-list />

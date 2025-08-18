@@ -54,4 +54,13 @@ export class AuthService {
     localStorage.removeItem('user')
     this._isLoggedIn.set(false);
   }
+
+  getUserDetails(): Observable<User> {
+    const token = localStorage.getItem('token') || '';
+    return this.http.get<User>(`${this.apiUrl}/me`, {
+      headers: {
+        'X-Authorization': token
+      }
+    })
+  }
 }
