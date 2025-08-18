@@ -13,13 +13,6 @@ export class CommentService {
 
   constructor(private http: HttpClient) { }
 
-  private getAuthHeaders() {
-    const accessToken = localStorage.getItem('token') || '';
-    return {
-      'X-Authorization': `${accessToken}`
-    }
-  }
-
   getComments(productId: string) {
     const query = encodeURIComponent(`productId="${productId}"`);
     return this.http.get<CommentOutput[]>(`${this.apiUrl}?where=${query}`).subscribe({
@@ -29,10 +22,7 @@ export class CommentService {
   }
 
   addComment(commentData: Comment) {
-    const accessToken = localStorage.getItem('token');
-    return this.http.post<CommentOutput>(`${this.apiUrl}`, commentData, {
-      headers: this.getAuthHeaders()
-    }).subscribe({
+    return this.http.post<CommentOutput>(`${this.apiUrl}`, commentData ).subscribe({
       next: (newComment) => {
         this.comments.update(prev => [...prev, newComment])
       },
@@ -41,8 +31,7 @@ export class CommentService {
   }
 
   deleteComment(commentId: string) {
-    const accessToken = localStorage.getItem('token');
-    return this.http.delete(`${this.apiUrl}/${commentId}`, { headers: this.getAuthHeaders() }).subscribe({
+    return this.http.delete(`${this.apiUrl}/${commentId}`).subscribe({
       next: () => {
         this.comments.update(prev => prev.filter(comment => comment._id !== commentId))
       },
@@ -51,9 +40,7 @@ export class CommentService {
   }
 
   editComment(commentId: string, updatedData: { rating: number, comment: string }) {
-    return this.http.put<CommentOutput>(`${this.apiUrl}/${commentId}`, updatedData, {
-      headers: this.getAuthHeaders()
-    }).subscribe({
+    return this.http.put<CommentOutput>(`${this.apiUrl}/${commentId}`, updatedData).subscribe({
       next: (updatedComment) => {
         this.comments.update((prev) =>
           prev.map(c => c._id === updatedComment._id ? updatedComment : c)

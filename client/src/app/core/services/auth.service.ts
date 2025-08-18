@@ -8,16 +8,16 @@ import { catchError, Observable, tap, throwError } from 'rxjs';
 })
 export class AuthService {
   private readonly apiUrl = 'http://localhost:3030/users'
-
+  
   private _isLoggedIn = signal(!!localStorage.getItem('token'));
   public isLoggedIn = this._isLoggedIn;
+
+  constructor(private http: HttpClient) { }
 
   getUser(): User | null {
     const user = localStorage.getItem('user');
     return user ? JSON.parse(user) : null;
   }
-
-  constructor(private http: HttpClient) { }
 
   register(userData: { username: string, email: string, password: string }): Observable<User> {
     return this.http.post<User>(`${this.apiUrl}/register`, userData).pipe(
@@ -57,10 +57,12 @@ export class AuthService {
 
   getUserDetails(): Observable<User> {
     const token = localStorage.getItem('token') || '';
-    return this.http.get<User>(`${this.apiUrl}/me`, {
-      headers: {
-        'X-Authorization': token
-      }
-    })
+    return this.http.get<User>(`${this.apiUrl}/me`
+    //   , {
+    //   headers: {
+    //     'X-Authorization': token
+    //   }
+    // }
+  )
   }
 }
