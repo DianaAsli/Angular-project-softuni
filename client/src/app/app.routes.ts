@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './features/home/home.component';
 import { CategoriesComponent } from './features/categories/categories.component';
-import { AboutComponent } from './pages/about/about.component';
-import { ContactsComponent } from './pages/contacts/contacts.component';
+import { AboutComponent } from './features/about/about.component';
+import { ContactsComponent } from './features/contacts/contacts.component';
 import { RegisterComponent } from './features/auth/register/register.component';
 import { LoginComponent } from './features/auth/login/login.component';
 import { ProductDetailsComponent } from './features/products/product-details/product-details.component';
