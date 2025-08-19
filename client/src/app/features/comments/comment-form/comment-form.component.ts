@@ -74,6 +74,7 @@ export class CommentFormComponent implements OnChanges {
         comment: this.form.value.comment,
       }
       this.commentService.editComment(this.editComment._id, updatedData);
+      this.editComment = null;
     } else {
       // Add 
       const commentData = {

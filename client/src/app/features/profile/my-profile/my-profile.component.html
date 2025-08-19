@@ -20,41 +20,49 @@
       <form [formGroup]="profileForm" class="flex flex-col gap-4">
         <div>
           <label class="block font-medium mb-1 text-black">Username</label>
-          <input formControlName="username" type="text" class="w-full border border-gray-300 rounded px-3 py-2 bg-white text-black" />
+          <input formControlName="username" type="text"
+            class="w-full border border-gray-300 rounded px-3 py-2 bg-white text-black" />
         </div>
         <div>
           <label class="block font-medium mb-1 text-black">Email</label>
-          <input formControlName="email" type="email" class="w-full border border-gray-300 rounded px-3 py-2 bg-white text-black" />
+          <input formControlName="email" type="email"
+            class="w-full border border-gray-300 rounded px-3 py-2 bg-white text-black" />
         </div>
         <div>
           <label class="block font-medium mb-1 text-black">Password</label>
           <input formControlName="password" type="password" placeholder="********"
             class="w-full border border-gray-300 rounded px-3 py-2 bg-white text-black" />
         </div>
-        
+
         <button class="mt-4 px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition">Save Changes</button>
       </form>
     </div>
     }
-
 
     <!-- Comments -->
     @if(activeTab ==="comments"){
     <div class="mt-6">
       <h2 class="text-xl font-semibold mb-4 text-black">My Reviews</h2>
       <p class="text-gray-600">You have not written any reviews yet.</p>
-      
+
     </div>
     }
 
-
     <!-- Favourites -->
     @if(activeTab==="favourites"){
+    @if(favourites().length==0){
     <div class="mt-6">
       <h2 class="text-xl font-semibold mb-4 text-black">My Favourites</h2>
       <p class="text-gray-600">No favourite products yet.</p>
-      
     </div>
+    } @else {
+    <app-title title="Favourites" />
+    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6">
+      @for (fav of favourites(); track fav._id){
+      <app-product-card [product]="fav.product" />
+      }
+    </div>
+    }
     }
 
 
