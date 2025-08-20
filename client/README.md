@@ -1,27 +1,36 @@
-# Client
+# Jewlery E-Commerce (Angular 18)
+This project is a learning excersice for the Angular course at SoftUni.
+It represents a simple e-commerce shop with Angular 18 and a SoftUni Practice server backend.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.11.
+## Features
 
-## Development server
+### Public part (without authentication)
+*Home Page with hero section, new arrivals, best sellers and info banner.
+*Product catalog - products displayed in 5 categories.
+*Product details page - details for each product.
+*Authentication - user login and registration forms.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+#### Private part (user area, requires login)
+**My profile - displays user details info.
+*My info - display users details.
+*My favourites - list of favourites products (from favourites collection).
+*My comments - list of user's comments (from comments collection).
+**Comments & Favourites
+*Logged--in users can create, edit, delete their own comments.
+*Logged-in users can add/remove products to favourites.
+*Guests can only view products and read comments.
 
-## Code scaffolding
+##### Technologies used
+*Angular 18 (standalone components)
+*Typescript
+*HTML & CSS & Tailwind
+*SoftUni practice server
+*JSON collections
+*RxJS
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+###### Getting Started
+To run project locally, is needed to start the server and the angular client.
+cd server -> node server
+cd client -> ng serve
 
-## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
