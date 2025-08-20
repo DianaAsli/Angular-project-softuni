@@ -11,14 +11,23 @@ import { MyProfileComponent } from './features/profile/my-profile/my-profile.com
 import { MyInfoComponent } from './features/profile/my-info/my-info/my-info.component';
 import { FavouritesComponent } from './features/profile/favourites/favourites/favourites.component';
 import { MyCommentsComponent } from './features/profile/my-comments/my-comments/my-comments.component';
+import { authGuard } from './core/guards/auth.guard';
+import { guestGuard } from './core/guards/guest.guard';
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/home' },
     { path: 'home', component: HomeComponent },
     { path: 'about', component: AboutComponent },
     { path: 'contact', component: ContactsComponent },
+    { path: 'product/:id', component: ProductDetailsComponent },
+
+    { path: 'categories', component: CategoriesComponent },
+    { path: 'categories/:category', component: CategoryComponent },
+
     {
-        path: 'profile', component: MyProfileComponent,
+        path: 'profile',
+        component: MyProfileComponent,
+        canActivate: [authGuard],
         children: [
             { path: 'info', component: MyInfoComponent },
             { path: 'favourites', component: FavouritesComponent },
@@ -26,14 +35,10 @@ export const routes: Routes = [
             { path: '', redirectTo: 'info', pathMatch: 'full' }
         ]
     },
-    { path: 'product/:id', component: ProductDetailsComponent },
 
-    { path: 'categories', component: CategoriesComponent },
-    { path: 'categories/:category', component: CategoryComponent },
+    { path: 'register', canActivate: [guestGuard], component: RegisterComponent },
+    { path: 'login', canActivate: [guestGuard], component: LoginComponent },
 
-    { path: 'register', component: RegisterComponent },
-    { path: 'login', component: LoginComponent },
 
-    
 ];
 
