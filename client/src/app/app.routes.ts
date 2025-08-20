@@ -13,6 +13,7 @@ import { FavouritesComponent } from './features/profile/favourites/favourites/fa
 import { MyCommentsComponent } from './features/profile/my-comments/my-comments/my-comments.component';
 import { authGuard } from './core/guards/auth.guard';
 import { guestGuard } from './core/guards/guest.guard';
+import { NotFoundComponent } from './features/not-found/not-found.component';
 
 export const routes: Routes = [
     { path: '', pathMatch: 'full', redirectTo: '/home' },
@@ -39,6 +40,6 @@ export const routes: Routes = [
     { path: 'register', canActivate: [guestGuard], component: RegisterComponent },
     { path: 'login', canActivate: [guestGuard], component: LoginComponent },
 
-
+    { path: '**', component: NotFoundComponent }
 ];
 
