@@ -1,7 +1,7 @@
 import { Component, computed, inject, Input, OnInit, signal } from '@angular/core';
 import { ProductService } from '../../../core/services/product.service';
 import { Product } from '../../../shared/models/product.model';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TitleComponent } from "../../../shared/components/title/title.component";
 import { CommentListComponent } from "../../comments/comment-list/comment-list.component";
 import { FavouritesService } from '../../../core/services/favourites.service';
@@ -18,6 +18,7 @@ export class ProductDetailsComponent implements OnInit {
   private productService = inject(ProductService);
   private favouriteService = inject(FavouritesService);
   private route = inject(ActivatedRoute);
+  private router = inject(Router);
   authService = inject(AuthService);
 
   product = signal<Product | null>(null);
@@ -40,10 +41,18 @@ export class ProductDetailsComponent implements OnInit {
     }
 
     const id = this.route.snapshot.paramMap.get('id');
+    if (!id) {
+      this.router.navigate(['/404']);
+    }
     if (id) {
       this.productService.getOne(id).subscribe({
         next: (prod) => {
-          this.product.set(prod);
+          if (prod) {
+            this.product.set(prod);
+          } else {
+            this.router.navigate(['/404']);
+          }
+
         },
         error: (err) => console.log('error loading th eproduct', err)
       })

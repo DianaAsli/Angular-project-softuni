@@ -27,12 +27,12 @@ export const routes: Routes = [
 
     {
         path: 'profile',
-        loadComponent:() => import('./features/profile/my-profile/my-profile.component').then(m=>m.MyProfileComponent),
+        loadComponent: () => import('./features/profile/my-profile/my-profile.component').then(m => m.MyProfileComponent),
         canActivate: [authGuard],
         children: [
-            { path: 'info', loadComponent:() => import('./features/profile/my-info/my-info/my-info.component').then(m=>m.MyInfoComponent) },
-            { path: 'favourites', loadComponent:() => import('./features/profile/favourites/favourites/favourites.component').then(m=>m.FavouritesComponent) },
-            { path: 'comments', loadComponent:() => import('./features/profile/my-comments/my-comments/my-comments.component').then(m=>m.MyCommentsComponent) },
+            { path: 'info', loadComponent: () => import('./features/profile/my-info/my-info/my-info.component').then(m => m.MyInfoComponent) },
+            { path: 'favourites', loadComponent: () => import('./features/profile/favourites/favourites/favourites.component').then(m => m.FavouritesComponent) },
+            { path: 'comments', loadComponent: () => import('./features/profile/my-comments/my-comments/my-comments.component').then(m => m.MyCommentsComponent) },
             { path: '', redirectTo: 'info', pathMatch: 'full' }
         ]
     },
@@ -40,6 +40,8 @@ export const routes: Routes = [
     { path: 'register', canActivate: [guestGuard], loadComponent: () => import('./features/auth/register/register.component').then(m => m.RegisterComponent) },
     { path: 'login', canActivate: [guestGuard], loadComponent: () => import('./features/auth/login/login.component').then(m => m.LoginComponent) },
 
-    { path: '**', loadComponent: () => import('./features/not-found/not-found.component').then(m => m.NotFoundComponent) }
+    { path: '404', component: NotFoundComponent },
+    { path: '**', redirectTo: '404' }
+    // { path: '**', loadComponent: () => import('./features/not-found/not-found.component').then(m => m.NotFoundComponent) }
 ];
 
