@@ -1,11 +1,11 @@
 <section class="max-w-7xl mx-auto p-6">
   <app-title title="Shop by Category" />
 
-  <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+  <div class=" grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
     @for(category of categories; track $index){
     <div [routerLink]="['/categories', category.name.toLowerCase()]" class="relative group cursor-pointer overflow-hidden rounded-lg shadow-md">
       <img [src]="category.image" [alt]="category.name"
-           class="w-full h-70 object-cover transition-transform duration-300 group-hover:scale-105">
+           class="rounded-xl w-full h-70 object-cover transition-transform duration-300 group-hover:scale-105">
 
       <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 to-transparent p-3">
         <span class="text-white text-lg font-semibold">{{category.name}}</span>

@@ -2,69 +2,19 @@
 
   <!-- Sidebar -->
   <nav class="w-full md:w-1/4 bg-gray-100 rounded-lg p-4 flex flex-col gap-4">
-    <button (click)="activeTab = 'info'"
+    <button routerLink="info"
       class="px-4 cursor-pointer py-2 rounded hover:bg-gray-300 text-left text-black">My Info</button>
-    <button (click)="activeTab = 'comments'"
+    <button routerLink="comments"
       class="px-4 py-2 cursor-pointer rounded hover:bg-gray-300 text-left text-black">My Reviews</button>
-    <button (click)="activeTab = 'favourites'"
+    <button routerLink="favourites"
       class="px-4 py-2 cursor-pointer rounded hover:bg-gray-300 text-left text-black">My Favourites</button>
   </nav>
 
 
   <div class="flex-1 bg-white rounded-lg p-6 border border-gray-200">
 
-    <!-- Info -->
-    @if(activeTab ==="info"){
-    <div>
-      <h2 class="text-xl font-semibold mb-4 text-black">My Info</h2>
-      <form [formGroup]="profileForm" class="flex flex-col gap-4">
-        <div>
-          <label class="block font-medium mb-1 text-black">Username</label>
-          <input formControlName="username" type="text"
-            class="w-full border border-gray-300 rounded px-3 py-2 bg-white text-black" />
-        </div>
-        <div>
-          <label class="block font-medium mb-1 text-black">Email</label>
-          <input formControlName="email" type="email"
-            class="w-full border border-gray-300 rounded px-3 py-2 bg-white text-black" />
-        </div>
-        <div>
-          <label class="block font-medium mb-1 text-black">Password</label>
-          <input formControlName="password" type="password" placeholder="********"
-            class="w-full border border-gray-300 rounded px-3 py-2 bg-white text-black" />
-        </div>
-
-        <button class="mt-4 px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition">Save Changes</button>
-      </form>
-    </div>
-    }
-
-    <!-- Comments -->
-    @if(activeTab ==="comments"){
-    <div class="mt-6">
-      <h2 class="text-xl font-semibold mb-4 text-black">My Reviews</h2>
-      <p class="text-gray-600">You have not written any reviews yet.</p>
-
-    </div>
-    }
-
-    <!-- Favourites -->
-    @if(activeTab==="favourites"){
-    @if(favourites().length==0){
-    <div class="mt-6">
-      <h2 class="text-xl font-semibold mb-4 text-black">My Favourites</h2>
-      <p class="text-gray-600">No favourite products yet.</p>
-    </div>
-    } @else {
-    <app-title title="Favourites" />
-    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6">
-      @for (fav of favourites(); track fav._id){
-      <app-product-card [product]="fav.product" />
-      }
-    </div>
-    }
-    }
-
+   <router-outlet>
+   </router-outlet>
 
   </div>
 </section>

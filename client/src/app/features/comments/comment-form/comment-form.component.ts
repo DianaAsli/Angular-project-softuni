@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { ratingValidator } from '../../../shared/validators/rating.validator';
 import { CommentService } from '../../../core/services/comment.service';
 import { CommentOutput } from '../../../shared/models/comment-output.model';
+import { Product } from '../../../shared/models/product.model';
 
 @Component({
   selector: 'app-comment-form',
@@ -81,7 +82,7 @@ export class CommentFormComponent implements OnChanges {
         productId: this.route.snapshot.paramMap.get('id')!,
         rating: this.rating,
         comment: this.form.value.comment,
-        username: this.authService.getUser()?.username!
+        username: this.authService.getUser()?.username!,
       }
 
       this.commentService.addComment(commentData);

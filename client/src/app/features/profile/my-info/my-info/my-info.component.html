@@ -1,0 +1,24 @@
+ <!-- Info -->
+    <div>
+      <h2 class="text-xl font-semibold mb-4 text-black">My Info</h2>
+      <form [formGroup]="profileForm" class="flex flex-col gap-4">
+        <div>
+          <label class="block font-medium mb-1 text-black">Username</label>
+          <input formControlName="username" type="text"
+            class="w-full border border-gray-300 rounded px-3 py-2 bg-white text-black" />
+        </div>
+        <div>
+          <label class="block font-medium mb-1 text-black">Email</label>
+          <input formControlName="email" type="email"
+            class="w-full border border-gray-300 rounded px-3 py-2 bg-white text-black" />
+        </div>
+        <div>
+          <label class="block font-medium mb-1 text-black">Password</label>
+          <input formControlName="password" type="password" placeholder="********"
+            class="w-full border border-gray-300 rounded px-3 py-2 bg-white text-black" />
+        </div>
+
+        <button class="mt-4 px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition">Save Changes</button>
+      </form>
+    </div>
+    
