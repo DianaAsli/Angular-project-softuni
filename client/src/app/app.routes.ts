@@ -20,26 +20,26 @@ export const routes: Routes = [
     { path: 'home', component: HomeComponent },
     { path: 'about', component: AboutComponent },
     { path: 'contact', component: ContactsComponent },
-    { path: 'product/:id', component: ProductDetailsComponent },
 
-    { path: 'categories', component: CategoriesComponent },
-    { path: 'categories/:category', component: CategoryComponent },
+    { path: 'product/:id', loadComponent: () => import('./features/products/product-details/product-details.component').then(m => m.ProductDetailsComponent) },
+    { path: 'categories', loadComponent: () => import('./features/categories/categories.component').then(m => m.CategoriesComponent) },
+    { path: 'categories/:category', loadComponent: () => import('./features/categories/category/category.component').then(m => m.CategoryComponent) },
 
     {
         path: 'profile',
-        component: MyProfileComponent,
+        loadComponent:() => import('./features/profile/my-profile/my-profile.component').then(m=>m.MyProfileComponent),
         canActivate: [authGuard],
         children: [
-            { path: 'info', component: MyInfoComponent },
-            { path: 'favourites', component: FavouritesComponent },
-            { path: 'comments', component: MyCommentsComponent },
+            { path: 'info', loadComponent:() => import('./features/profile/my-info/my-info/my-info.component').then(m=>m.MyInfoComponent) },
+            { path: 'favourites', loadComponent:() => import('./features/profile/favourites/favourites/favourites.component').then(m=>m.FavouritesComponent) },
+            { path: 'comments', loadComponent:() => import('./features/profile/my-comments/my-comments/my-comments.component').then(m=>m.MyCommentsComponent) },
             { path: '', redirectTo: 'info', pathMatch: 'full' }
         ]
     },
 
-    { path: 'register', canActivate: [guestGuard], component: RegisterComponent },
-    { path: 'login', canActivate: [guestGuard], component: LoginComponent },
+    { path: 'register', canActivate: [guestGuard], loadComponent: () => import('./features/auth/register/register.component').then(m => m.RegisterComponent) },
+    { path: 'login', canActivate: [guestGuard], loadComponent: () => import('./features/auth/login/login.component').then(m => m.LoginComponent) },
 
-    { path: '**', component: NotFoundComponent }
+    { path: '**', loadComponent: () => import('./features/not-found/not-found.component').then(m => m.NotFoundComponent) }
 ];
 
